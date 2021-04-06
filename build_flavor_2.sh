@@ -12,3 +12,5 @@ echo '|                                                       |'
 echo '|                                                       |'
 echo '|                                                       |'
 echo '| ----------------------------------------------------- |'
+
+cp -r flavors/flavor_2/assets/ app/client_app/
