@@ -8,14 +8,14 @@
       "name": "flavor_1",
       "cwd": "client_app",
       "request": "launch",
-      "preLaunchTask": "build",
+      "preLaunchTask": "build_flavor_1",
       "type": "dart"
     },
     {
       "name": "flavor_2",
       "cwd": "client_app",
       "request": "launch",
-      "preLaunchTask": "build",
+      "preLaunchTask": "build_flavor_2",
       "type": "dart"
     }
   ]
