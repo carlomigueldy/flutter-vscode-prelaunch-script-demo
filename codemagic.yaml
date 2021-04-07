@@ -74,21 +74,31 @@ workflows:
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/app/client_app/android/local.properties"
       - |
-        # [START] Pre-build script for "Youtube" flavor executing...
+        # Post clone script for flavor "Youtube"
         echo ''
         cp -R flavors/flavor_1/android/ app/client_app/android
         cp -R flavors/flavor_1/assets/ app/client_app
         cp flavors/flavor_1/pubspec.yaml app/client_app
-        # [END] Pre-build script done!
-      - ls app/client_app/android
-      - cat app/client_app/pubspec.yaml
-      - cat app/client_app/android/app/src/main/AndroidManifest.xml
+      - | 
+        # Pre build
+
+        ls app/client_app/android
+        cat app/client_app/pubspec.yaml
+        cat app/client_app/android/app/src/main/AndroidManifest.xml
       - | 
         # Build APK 
         
-        cd app/client_app && flutter pub get && flutter build apk --release
-      - cat app/client_app/pubspec.yaml
-      - cat app/client_app/android/app/src/main/AndroidManifest.xml
+        cd app/client_app 
+        flutter pub get
+        flutter clean
+        flutter pub get
+        flutter build apk --release
+      - | 
+        # Post build
+
+        ls app/client_app/android
+        cat app/client_app/pubspec.yaml
+        cat app/client_app/android/app/src/main/AndroidManifest.xml
     artifacts:
       - app/client_app/build/**/outputs/**/*.apk
       - app/client_app/build/**/outputs/**/*.aab
