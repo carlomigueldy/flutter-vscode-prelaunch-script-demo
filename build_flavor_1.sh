@@ -13,4 +13,4 @@ echo '|                                                       |'
 echo '|                                                       |'
 echo '| ----------------------------------------------------- |'
 
-cp -r flavors/flavor_1/assets/ app/client_app/
+cp -R flavors/flavor_1/assets/ app/client_app/
