@@ -14,3 +14,4 @@ echo '|                                                       |'
 echo '| ----------------------------------------------------- |'
 
 cp -R flavors/flavor_2/assets/ app/client_app/
+cp flavors/flavor_2/pubspec.yaml app/client_app/
