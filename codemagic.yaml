@@ -74,9 +74,9 @@ workflows:
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/app/client_app/android/local.properties"
       - echo '[START] Pre-build script for "Youtube" flavor executing...'
-      - cp -R flavors/flavor_1/assets/ app/client_app/ 
-      - cp flavors/flavor_1/pubspec.yaml app/client_app/
-      - cp -R flavors/flavor_1/android/ app/client_app/
+      - cp -R flavors/flavor_1/android/ app/client_app
+      - cp -R flavors/flavor_1/assets/ app/client_app
+      - cp flavors/flavor_1/pubspec.yaml app/client_app
       - echo '[END] Pre-build script done!'
       - cd app/client_app && flutter pub get && flutter build apk --release
     artifacts:
@@ -116,9 +116,9 @@ workflows:
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/app/client_app/android/local.properties"
       - echo '[START] Pre-build script for "Amazon" flavor executing...'
-      - cp -R flavors/flavor_2/assets/ app/client_app/ 
-      - cp flavors/flavor_2/pubspec.yaml app/client_app/
-      - cp -R flavors/flavor_2/android/ app/client_app/
+      - cp -R flavors/flavor_2/android/ app/client_app
+      - cp -R flavors/flavor_2/assets/ app/client_app 
+      - cp flavors/flavor_2/pubspec.yaml app/client_app
       - echo '[END] Pre-build script done!'
       - cd app/client_app && flutter pub get && flutter build apk --release
     artifacts:
