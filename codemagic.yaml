@@ -76,10 +76,11 @@ workflows:
       - |
         # [START] Pre-build script for "Youtube" flavor executing...
         echo ''
-        cp -R flavors/flavor_1/android/ app/client_app
+        cp -R flavors/flavor_1/android/ app/client_app/android
         cp -R flavors/flavor_1/assets/ app/client_app
         cp flavors/flavor_1/pubspec.yaml app/client_app
         # [END] Pre-build script done!
+      - ls app/client_app/android
       - cat app/client_app/pubspec.yaml
       - cat app/client_app/android/app/src/main/AndroidManifest.xml
       - | 
