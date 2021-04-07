@@ -27,16 +27,31 @@ workflows:
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/app/client_app/android/local.properties"
       - |
-        echo 'Post clone script'
+        # Post clone script for flavor "Youtube"
+        echo ''
+        cp -R flavors/flavor_1/android/ app/client_app/android
+        cp -R flavors/flavor_1/assets/ app/client_app/assets
+        cp flavors/flavor_1/pubspec.yaml app/client_app
+      - | 
+        # Pre build
 
-        bash build_flavor_1.sh
-      - cd app/client_app && flutter packages pub get
-      - echo 'Pre test script'
-      - echo 'Post test script'
-      - echo 'Pre build script'
-      - cd app/client_app && flutter build apk --release
-      - echo 'Post build script'
-      - echo 'Pre publish script'
+        ls app/client_app/android
+        cat app/client_app/pubspec.yaml
+        cat app/client_app/android/app/src/main/AndroidManifest.xml
+      - | 
+        # Build APK 
+        
+        cd app/client_app 
+        flutter pub get
+        flutter clean
+        flutter pub get
+        flutter build apk --release
+      - | 
+        # Post build
+
+        ls app/client_app/android
+        cat app/client_app/pubspec.yaml
+        cat app/client_app/android/app/src/main/AndroidManifest.xml
     artifacts:
       - app/client_app/build/**/outputs/**/*.apk
       - app/client_app/build/**/outputs/**/*.aab
@@ -135,12 +150,32 @@ workflows:
       - |
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/app/client_app/android/local.properties"
-      - echo '[START] Pre-build script for "Amazon" flavor executing...'
-      - cp -R flavors/flavor_2/android/ app/client_app
-      - cp -R flavors/flavor_2/assets/ app/client_app 
-      - cp flavors/flavor_2/pubspec.yaml app/client_app
-      - echo '[END] Pre-build script done!'
-      - cd app/client_app && flutter pub get && flutter build apk --release
+      - |
+        # Post clone script for flavor "Youtube"
+        echo ''
+        cp -R flavors/flavor_2/android/ app/client_app/android
+        cp -R flavors/flavor_2/assets/ app/client_app/assets
+        cp flavors/flavor_2/pubspec.yaml app/client_app
+      - | 
+        # Pre build
+
+        ls app/client_app/android
+        cat app/client_app/pubspec.yaml
+        cat app/client_app/android/app/src/main/AndroidManifest.xml
+      - | 
+        # Build APK 
+        
+        cd app/client_app 
+        flutter pub get
+        flutter clean
+        flutter pub get
+        flutter build apk --release
+      - | 
+        # Post build
+
+        ls app/client_app/android
+        cat app/client_app/pubspec.yaml
+        cat app/client_app/android/app/src/main/AndroidManifest.xml
     artifacts:
       - app/client_app/build/**/outputs/**/*.apk
       - app/client_app/build/**/outputs/**/*.aab
