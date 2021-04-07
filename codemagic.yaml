@@ -26,17 +26,8 @@ workflows:
       - |
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/app/client_app/android/local.properties"
-      - |
-        echo 'Post clone script'
-
-        bash build_flavor_1.sh
-      - cd app/client_app && flutter packages pub get
-      - echo 'Pre test script'
-      - echo 'Post test script'
-      - echo 'Pre build script'
+      - bash build_flavor_1.sh && cd app/client_app && flutter packages pub get
       - cd app/client_app && flutter build apk --release
-      - echo 'Post build script'
-      - echo 'Pre publish script'
     artifacts:
       - app/client_app/build/**/outputs/**/*.apk
       - app/client_app/build/**/outputs/**/*.aab
