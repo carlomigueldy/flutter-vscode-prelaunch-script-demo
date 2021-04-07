@@ -26,11 +26,14 @@ workflows:
       - |
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/app/client_app/android/local.properties"
-      - echo 'Post clone script'
+      - |
+        echo 'Post clone script'
+
+        bash build_flavor_1.sh
       - cd app/client_app && flutter packages pub get
       - echo 'Pre test script'
       - echo 'Post test script'
-      - bash build_flavor_1.sh
+      - echo 'Pre build script'
       - cd app/client_app && flutter build apk --release
       - echo 'Post build script'
       - echo 'Pre publish script'
@@ -46,7 +49,7 @@ workflows:
       scripts:
         - echo 'Post publish script'
 
-  flavor_1:
+  youtube-workflow:
     name: Youtube Workflow
     instance_type: mac_mini
     max_build_duration: 60
@@ -70,11 +73,14 @@ workflows:
       - |
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/app/client_app/android/local.properties"
-      - echo 'Post clone script'
+      - |
+        echo 'Post clone script'
+
+        bash build_flavor_1.sh
       - cd app/client_app && flutter packages pub get
       - echo 'Pre test script'
       - echo 'Post test script'
-      - bash build_flavor_1.sh
+      - echo 'Pre build script'
       - cd app/client_app && flutter build apk --release
       - echo 'Post build script'
       - echo 'Pre publish script'
@@ -90,7 +96,7 @@ workflows:
       scripts:
         - echo 'Post publish script'
 
-  flavor_2:
+  amazon-workflow:
     name: Amazon Workflow
     instance_type: mac_mini
     max_build_duration: 60
@@ -114,11 +120,14 @@ workflows:
       - |
         # set up local properties
         echo "flutter.sdk=$HOME/programs/flutter" > "$FCI_BUILD_DIR/app/client_app/android/local.properties"
-      - echo 'Post clone script'
+      - |
+        echo 'Post clone script'
+
+        bash build_flavor_1.sh
       - cd app/client_app && flutter packages pub get
       - echo 'Pre test script'
       - echo 'Post test script'
-      - bash build_flavor_2.sh
+      - echo 'Pre build script'
       - cd app/client_app && flutter build apk --release
       - echo 'Post build script'
       - echo 'Pre publish script'
