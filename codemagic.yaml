@@ -47,7 +47,7 @@ workflows:
         - echo 'Post publish script'
 
   flavor_1:
-    name: Amazon Workflow
+    name: Youtube Workflow
     instance_type: mac_mini
     max_build_duration: 60
     environment:
@@ -91,7 +91,7 @@ workflows:
         - echo 'Post publish script'
 
   flavor_2:
-    name: Youtube Workflow
+    name: Amazon Workflow
     instance_type: mac_mini
     max_build_duration: 60
     environment:
