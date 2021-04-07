@@ -1,4 +1,4 @@
-package com.example.youtube_app
+package com.example.amazon_app
 
 import io.flutter.embedding.android.FlutterActivity
 
